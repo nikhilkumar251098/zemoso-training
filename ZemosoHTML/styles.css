@@ -1,0 +1,100 @@
+header {
+    text-align: center;
+}
+
+ul {
+    width: 457px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 36px;
+    line-height: 36px;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    border-radius: 30px 30px 30px 30px;
+}
+
+li {
+    float: left;
+    border-right: 1px solid sienna;
+    border-radius: 30px 30px 30px 30px;
+}
+
+a {
+    display: block;
+    padding: 0 28px;
+    color: white;
+}
+
+.active a {
+    background-color: rgb(20, 197, 220);
+    border-radius: 30px 30px 30px 30px;
+}
+
+.box {
+    border: 5px solid rgb(20, 197, 220);
+    background-color: lightgray;
+    border-style: double;
+    padding: 20px;
+    margin: 40px;
+    width: 720px;
+    height: 440px;
+    font-size: 20px;
+}
+
+.title_header {
+    background-color: rgb(20, 197, 220);
+    padding: .5em;
+    color: #000000;
+    font-size: 4em;
+    text-align: center;
+}
+
+.gallery {
+    max-width: 15em;
+    min-height: 15em;
+    border: 1px hidden;
+    padding: 1em;
+    background-image: none;
+}
+
+body {
+    background-image: url("bg-image.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center top;
+}
+
+img {
+    float: right;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-github {
+    background: #2c4762;
+    color: white;
+}
