@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pics of Nikhil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <center>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-me.html">About Me</a></li>
+                <li><a href="contact-me.html">Contact Me</a></li>
+                <li class="active"><a href="gallery.html">Gallery</a></li>
+                <li><a href="gallery-admin.html">Gallery Admin</a></li>
+            </ul>
+        </nav>
+    </center>
+    <div id="json-file"></div>
+    <script>
+        fetch("gallery.json")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                document.querySelector("#json-file")
+            })
+    </script>
+    </div>
+</body>
+
+</html>
