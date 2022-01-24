@@ -28,6 +28,18 @@ a {
     color: white;
 }
 
+.buttons {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 .active a {
     background-color: rgb(20, 197, 220);
     border-radius: 30px 30px 30px 30px;
@@ -41,6 +53,18 @@ a {
     margin: 40px;
     width: 720px;
     height: 440px;
+    font-size: 20px;
+}
+
+.gallery-box {
+    border: 5px solid rgb(20, 197, 220);
+    background-color: lightgray;
+    border-style: double;
+    padding: 20px;
+    margin: 40px;
+    /*width: 1400px;
+    height: 750px;*/
+    overflow: auto;
     font-size: 20px;
 }
 
@@ -63,12 +87,16 @@ a {
 body {
     background-image: url("bg-image.jpg");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     background-position: center top;
 }
 
 img {
-    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    max-height: 350px;
+    padding: 5px;
 }
 
 .fa {
@@ -137,4 +165,9 @@ input[type=text]:focus,
 textarea:focus {
     background-color: #ddd;
     outline: none;
+}
+
+.gallery-element {
+    display: inline-block;
+    margin: 10px;
 }

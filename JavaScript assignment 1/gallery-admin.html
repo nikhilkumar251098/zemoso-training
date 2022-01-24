@@ -5,9 +5,10 @@
     <title>Gallery Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <script src="gallery.js"></script>
 </head>
 
-<body>
+<body onload="initializeBody()">
     <center>
         <nav>
             <ul>
@@ -18,8 +19,17 @@
                 <li class="active"><a href="gallery-admin.html">Gallery Admin</a></li>
             </ul>
         </nav>
+        <h1 class="title_header">Gallery Admin</h1>
+        <button type="button" class="buttons" id="edit-button" onclick="editGallery();">Edit</button>
+        <!--<form onclick="saveGallery();">
+        <input type="submit" class="buttons" value="Save" id="save-button">-->
+        <button type="button" class="buttons" id="save-button" onclick="saveGallery();">Save</button>
+        <div class="gallery-box">
+            <div id="content-main"></div>
+        </div>
+        </form>
     </center>
-
+    </div>
 </body>
 
 </html>

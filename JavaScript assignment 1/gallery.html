@@ -18,6 +18,7 @@
                 <li><a href="gallery-admin.html">Gallery Admin</a></li>
             </ul>
         </nav>
+
     </center>
     <div id="json-file"></div>
     <script>
@@ -25,7 +26,11 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                document.querySelector("#json-file")
+                var string = ''
+                for (var i = 0; i < data.length; i++) {
+                    string += `<img src=${data[i].Image}></img>`
+                }
+                document.querySelector("#json-file").innerHTML = string
             })
     </script>
     </div>
