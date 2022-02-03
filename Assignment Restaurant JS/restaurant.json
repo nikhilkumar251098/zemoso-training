@@ -1,0 +1,69 @@
+{
+    "starters": [
+
+        {
+            "id": "item1",
+            "name": "French Fries Rs-100"
+        },
+
+        {
+            "id": "item2",
+            "name": "Cheesy French Fries Rs-150"
+        },
+        {
+            "id": "item3",
+            "name": "Paneer Chilly Rs-200"
+        },
+        {
+            "id": "item4",
+            "name": "Chicken Chilly Rs-250"
+        }
+
+    ],
+    "main course": [
+
+        {
+            "id": "item5",
+            "name": "Veg Biryani Rs-200"
+        },
+
+        {
+            "id": "item6",
+            "name": "Chicken Biryani Rs-250"
+        },
+        {
+            "id": "item7",
+            "name": "Chicken Biryani Family Pack Rs-500"
+        },
+        {
+            "id": "item8",
+            "name": "Mutton Biryani Rs-350"
+        }
+
+    ],
+    "desserts": [
+
+        {
+            "id": "item9",
+            "name": "Brownie Rs-100"
+        },
+
+        {
+            "id": "item10",
+            "name": "Brownie with Ice Cream Rs-120"
+        }
+    ],
+    "beverages": [
+
+        {
+            "id": "item11",
+            "name": "Soft Drink Rs-40"
+        },
+
+        {
+            "id": "item12",
+            "name": "Lime Juice Rs-50"
+        }
+    ]
+
+}

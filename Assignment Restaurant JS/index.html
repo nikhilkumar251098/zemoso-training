@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resturant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="row ">
+        <div class="col-4">
+            <h1 style="text-align: center;">Tables</h1>
+            <input type="text" id="tablesearch" placeholder="Search Table no:" onkeyup="tableSearch()">
+            <div class="tableitem" id="table1" ondragover="allowDrop(event)" ondrop="drop(event,this)">
+                <h3>Table-1</h3><br>
+                <p id="itemst1">Items: 0 </p>
+                <p id="totalt1">Total: 0 </p>
+                <button id='view1' class="btn btn-primary" onclick="showTable('t1')">View Order Details</button>
+                <!--MODAL DIV-->
+                <div id="my-modal-t1" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Order Details</h2>
+                            <span class="close" onclick="closeTable('t1')">&times;</span>
+                        </div>
+                        <div class="modal-body" id="modal1">
+                            <table class="table table-striped" id="t1">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>delete</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <p id="total_t1"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id='reset1' class="btn btn-danger" onclick="resetTable('t1')">Generate Bill</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tableitem" id="table2" ondragover="allowDrop(event)" ondrop="drop(event,this)">
+                <h3>Table-2</h3><br>
+                <p id="itemst2">Items: 0 </p>
+                <p id="totalt2">Total: 0 </p>
+                <button id='view2' class="btn btn-primary" onclick="showTable('t2')">View Order Details</button>
+                <!--MODAL DIV-->
+                <div id="my-modal-t2" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Order Details</h2>
+                            <span class="close" onclick="closeTable('t2')">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped" id="t2">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>delete</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <p id="total_t2"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id='reset2' class="btn btn-danger" onclick="resetTable('t2')">Generate Bill</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tableitem" id="table3" ondragover="allowDrop(event)" ondrop="drop(event,this)">
+                <h3>Table-3</h3><br>
+                <p id="itemst3">Items: 0 </p>
+                <p id="totalt3">Total: 0 </p>
+                <button id='view3' class="btn btn-primary" onclick="showTable('t3')">View Order Details</button>
+                <!--MODAL DIV-->
+                <div id="my-modal-t3" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 style="text-align: center;">Order Details</h2>
+                            <span class="close" onclick="closeTable('t3')">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped" id="t3">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>delete</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <p id="total_t3"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id='reset3' class="btn btn-danger" onclick="resetTable('t3')">Generate Bill</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <h1 style="text-align: center;">Menu</h1>
+
+            <input type="text" id="search" placeholder="Search Item:" onkeyup="search()">
+            <div id="items">
+                <div id="starters">
+                    <h4 class="item" id="item1" draggable="true" ondragstart="drag(event)"><textarea hidden>starters</textarea>French Fries Rs-100</h4>
+                    <h4 class="item" id="item2" draggable="true" ondragstart="drag(event)"><textarea hidden>starters</textarea>Cheesy French Fries Rs-150</h4>
+                    <h4 class="item" id="item3" draggable="true" ondragstart="drag(event)"><textarea hidden>starters</textarea>Paneer Chilly Rs-200</h4>
+                    <h4 class="item" id="item4" draggable="true" ondragstart="drag(event)"><textarea hidden>starters</textarea>Chicken Chilly Rs-250</h4>
+                </div>
+                <div id="main course">
+                    <h4 class="item" id="item5" draggable="true" ondragstart="drag(event)"><textarea hidden>main course</textarea>Veg Biryani Rs-200</h4>
+                    <h4 class="item" id="item6" draggable="true" ondragstart="drag(event)"><textarea hidden>main course</textarea>Chicken Biryani Rs-250</h4>
+                    <h4 class="item" id="item7" draggable="true" ondragstart="drag(event)"><textarea hidden>main course</textarea>Chicken Biryani Family Pack Rs-500</h4>
+                    <h4 class="item" id="item8" draggable="true" ondragstart="drag(event)"><textarea hidden>main course</textarea>Mutton Biryani Rs-350</h4>
+                </div>
+                <div id="desserts">
+                    <h4 class="item" id="item9" draggable="true" ondragstart="drag(event)"><textarea hidden>desserts</textarea>Brownie Rs-100</h4>
+                    <h4 class="item" id="item10" draggable="true" ondragstart="drag(event)"><textarea hidden>desserts</textarea>Brownie with Ice Cream Rs-120</h4>
+                </div>
+                <div id="beverages">
+                    <h4 class="item" id="item11" draggable="true" ondragstart="drag(event)"><textarea hidden>beverages</textarea>Soft Drink Rs-40</h4>
+                    <h4 class="item" id="item12" draggable="true" ondragstart="drag(event)"><textarea hidden>beverages</textarea>Lime Juice Rs-50</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Filter.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
