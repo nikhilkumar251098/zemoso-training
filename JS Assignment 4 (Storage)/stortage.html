@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload= "message()">
+    <button>click me</button>
+    <h2>local score</h2>
+    <h2>session score</h2>
+    <script>
+        const button= document.querySelector('button');
+        const body= document.querySelector('body');
+        const messgae= document.querySelectorAll('h2');
+
+        button.onclick=()=>{
+            localStorage.setItem("count",JSON.parse(localStorage.getItem("count"))+1);
+            sessionStorage.setItem("count",JSON.parse(sessionStorage.getItem("count"))+1);
+
+            messgae[0].textContent="local score "+localStorage.getItem("count");
+            messgae[1].textContent="session score "+sessionStorage.getItem("count");
+        }
+
+        window.onload = ()=>{
+            if(sessionStorage.getItem('count')!=null){
+                message[1].textContent="session score "+sessionStorage.getItem('count');
+            }
+            else{
+                message[1].textContent="session score "+0;
+            }
+            if(localStorage.getItem('count')!=null){
+            message[0].textContent="local score "+localStorage.getItem('count');
+            }
+            else{
+                message[0].textContent="local score "+0;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
