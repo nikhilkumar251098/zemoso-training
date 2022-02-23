@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+
+<body>
+    <h1>Async</h1>
+    <script>
+        async function getData(uId) {
+            let email = await new Promise((resolve) => setTimeout(() => {
+                console.log("Fetched the data!");
+                resolve("skc@gmail.com");
+            }, 4000));
+            return email;
+        }
+
+        console.log("start");
+        var email = getData("skc");
+        email.then(message => console.log("Email id of the user id is: " + message));
+        console.log("end");
+    </script>
+</body>
+
+</html>
