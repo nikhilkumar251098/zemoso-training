@@ -1,0 +1,64 @@
+SQL Query Assignment - 1
+
+
+Q1. Find out the PG-13 rated comedy movies. DO NOT use the film_list table.
+
+First way-
+select title from 
+(select film_id, title from film where rating= "PG-13") as PG
+natural join
+(select film_id from film_category where category_id=5) as comedy;
+
+Duration/fetch of the query- 0.00073 sec / 0.000011 sec
+
+Second way-
+select title from film join film_category on film.film_id = film_category.film_id where rating = "PG-13" and category_id = 5;
+
+Duration/fetch of the query- 0.0012 sec / 0.000019 sec
+
+
+Q2. Find out the top 3 rented horror movies.
+
+select film_id, title, count(rental_id) from
+(select rental.rental_id, inventory.film_id from rental join inventory on rental.inventory_id= inventory.inventory_id) as rentals
+natural join
+(select title, film_id from 
+(select film_id, title from film) as film
+natural join
+(select film_id from film_category where category_id=11) as horror) as horror_films
+group by film_id
+order by count(rental_id) desc
+limit 3;
+
+
+Q3. Find out the list of customers from India who have rented sports movies.
+
+select ID, name from
+(select distinct customer_id from
+(select film_id from film_category where category_id=15) as sports_movies
+natural join
+(select rental.rental_id, inventory.film_id, rental.customer_id from rental join inventory on rental.inventory_id = inventory.inventory_id) as rentals) as sports_customers
+join 
+(select ID, name from customer_list where country = 'India') as indians
+on sports_customers.customer_id = indians.ID;
+
+
+Q4. Find out the list of customers from Canada who have rented “NICK WAHLBERG” movies.
+
+select * from
+(select distinct customer_id from
+(select film_id from film_actor where actor_id=2) as nick_movies
+natural join
+(select inventory.film_id,rental.customer_id from 
+rental 
+join
+inventory
+on rental.inventory_id=inventory.inventory_id) as rentals) as nick_customers
+join
+(select ID, name, country from customer_list where country='Canada') as canadians
+on canadians.ID=nick_customers.customer_id;
+
+
+Q5. Find out the number of movies in which “SEAN WILLIAMS” acted.
+
+select count(distinct film_id) from film_actor where actor_id=72;

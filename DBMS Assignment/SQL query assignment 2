@@ -1,0 +1,60 @@
+SQL Query Assignment - 2
+
+
+Q1. Find out the number of documentaries with deleted scenes.
+
+select count(film_id) from
+(select film_id from film where FIND_IN_SET('Deleted Scenes', special_features) > 0) as deleted_scenes
+natural join
+(select film_id from film_category where category_id = 6) as documentaries
+
+
+Q2. Find out the number of sci-fi movies rented by the store managed by Jon Stephens.
+
+select count(film_id) from
+(select film_id from film_category where category_id = 14) as scifi
+natural join
+(select distinct film_id from
+(select inventory.film_id, rental.customer_id from
+rental join inventory on rental.inventory_id = inventory.inventory_id) as rentals
+natural join
+(select customer_id from customer where store_id = 2) as jon_store_customers) as jon_store_films
+
+
+Q3. Find out the total sales from Animation movies.
+
+select sum(rentals * rental_rate) from
+(select * from
+(select film_id from film_category where category_id = 2) as animation_films
+natural join
+(select film_id, rental_rate from film) as film_prices) as film_rental_prices
+natural join
+(select inventory.film_id, count(rental.rental_id) as rentals from
+rental join inventory on rental.inventory_id = inventory.inventory_id
+group by inventory.film_id) as film_rentals_num
+
+
+Q4. Find out the top 3 rented category of movies by “PATRICIA JOHNSON”
+
+select category_id, num_rented, name from
+(select category_id, count(film_id) as num_rented from
+(select inventory.film_id from
+rental join inventory on rental.inventory_id = inventory.inventory_id
+where rental.customer_id = 2) as patricia_films
+natural join
+film_category
+group by category_id
+order by count(film_id) desc
+limit 3) as top_rented
+natural join
+category
+
+
+Q5. Find out the number of R rated movies rented by “SUSAN WILSON”.
+
+select count(film_id) from
+(select film_id from film where rating = "R") as r_rated_films
+natural join
+(select inventory.film_id from
+rental join inventory on rental.inventory_id = inventory.inventory_id
+where rental.customer_id = 8) as susan_film
